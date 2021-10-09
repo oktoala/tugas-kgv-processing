@@ -3,27 +3,31 @@ void setup() {
 }
 
 void draw() {
-    background(#ff0000, #00ff00, #0000ff);
     langit();
     awan(16.542, 10.699);
     awan(334.740, 5.537);
     matahari();
+    tanah(0, 170.336, #f9c36e);
+    tanah(248.523, 170.336, #59f864);
+    jalan();
     gunung(0, 51.861, #ff0000);
     gunung(237.199, 51.861, #920000);
+    rumah(66.157, 150.138);
+    rumah(300.157, 150.138);
     
 }
 
 void gunung(float xx, float yy, color colour) {
     
     /* 
-    Karena arc adalah setengah lingkaran, jadi width = height
+    Karena arc yang saya buat adalah setengah lingkaran, jadi width = height
     (nyesuaikan radius)
     */
     float width = 275.801; 
     float height = width;
     /* 
-    Karena arc (0,0)nya ada di tengah, jadi width/2 
-    untuk dapat (0,0). Lalu tambahkan dengan (x,y)
+    Karena arc (0,0) ada di tengah, jadi width/2 
+    untuk dapat (0,0) atau di pojok kiri-atas. Lalu tambahkan dengan (x,y)
     sesuka kalian.
     */
     float x = (width / 2) + xx; 
@@ -59,13 +63,54 @@ void awan(float xx, float yy) {
     rect(x_rect, y_rect, w_rect, h_rect, 100);
     
     float wh = 51.108;
-    float x_circle = xx+  10.689+ (wh/2);
-    float y_circle = yy+ 9.687+ (wh/2);
+    // Ini adalah (x, y) untuk lingkaran pertama
+    float x_circle = xx +  10.689 + (wh / 2);
+    float y_circle = yy + 9.687 + (wh / 2);
     for (int i = 0; i < 2; i++) {
         fill(#ffffff);
         ellipse(x_circle, y_circle, wh, wh);
-
-        x_circle = xx + 42.423+ (wh/2);
-        y_circle = yy +0+ (wh/2);
+        
+        // Ini adalah (x, y) untuk lingkaran lingkaran kedua
+        x_circle = xx + 42.423 + (wh / 2);
+        y_circle = yy + 0 + (wh / 2);
     }
+}
+
+void jalan() {
+    fill(#000000);
+    float x = 40;
+    float y = 160;
+    quad(189+x, 18+y, 216+x, 18+y, 300+x, 360+y, 120+x, 360+y);
+}
+
+void tanah(float x, float y, color colour) {
+    float w = 263.477;
+    float h = 341.648;
+    
+    fill(colour);
+    rect(x, y, w, h);
+    
+}
+
+void rumah(float x, float y) {
+    float wAtap = 102.987;
+    float hAtap = 38.677;
+    
+    // Atap
+    fill(#00ffff);
+    triangle(0+x, hAtap+y, wAtap/2+x, 0+y, wAtap+x, hAtap+y);
+
+    // Dinding
+    fill(#f3ff1d);
+    rect(0+x, hAtap+y, 102.988, 76.547);
+
+    // Pintu
+    fill(#d55328);
+    rect(14.091+x, hAtap+31.94+y, 31.592, 44.986);
+
+    // Jendela
+    rect(58.244+x, hAtap+11.273+y, 33.471, 28.077);
+
+
+
 }
