@@ -64,6 +64,7 @@ void awan(float xx, float yy) {
     
     float wh = 51.108;
     // Ini adalah (x, y) untuk lingkaran pertama
+    // Penjelasan lingkaran sama seperti arc
     float x_circle = xx +  10.689 + (wh / 2);
     float y_circle = yy + 9.687 + (wh / 2);
     for (int i = 0; i < 2; i++) {
@@ -77,10 +78,11 @@ void awan(float xx, float yy) {
 }
 
 void jalan() {
+    // Dari dokumentasi
     fill(#000000);
     float x = 40;
     float y = 160;
-    quad(189+x, 18+y, 216+x, 18+y, 300+x, 360+y, 120+x, 360+y);
+    quad(189 + x, 18 + y, 216 + x, 18 + y, 300 + x, 360 + y, 120 + x, 360 + y);
 }
 
 void tanah(float x, float y, color colour) {
@@ -97,20 +99,34 @@ void rumah(float x, float y) {
     float hAtap = 38.677;
     
     // Atap
+    /* 
+    Segitiga memiliki 3 titik , 
+    (x1, y1) di kiri bawah
+    (x2, y2) di atas
+    (x3, y3) di kanan bawah
+    Pertama, cari dulu (0, 0)
+    Untuk x1 dan y2 bernilai 0, karena
+    yang bersentuhan dengan titik (0, 0) adalah mereka.
+    y1 = y3 = hAtap karena ada di bawah
+    x2 = wAtap/2 karena ada di tengah
+    x3 = wAtap karena ada di ujung kanan.
+    Semua ditambahkan dengan (x, y) supaya gampang dipindah
+    
+    */
     fill(#00ffff);
-    triangle(0+x, hAtap+y, wAtap/2+x, 0+y, wAtap+x, hAtap+y);
-
+    triangle(0 + x, hAtap + y, wAtap / 2 + x, 0 + y, wAtap + x, hAtap + y);
+    
     // Dinding
     fill(#f3ff1d);
-    rect(0+x, hAtap+y, 102.988, 76.547);
-
+    rect(0 + x, hAtap + y, 102.988, 76.547);
+    
     // Pintu
     fill(#d55328);
-    rect(14.091+x, hAtap+31.94+y, 31.592, 44.986);
-
+    rect(14.091 + x, hAtap + 31.94 + y, 31.592, 44.986);
+    
     // Jendela
-    rect(58.244+x, hAtap+11.273+y, 33.471, 28.077);
-
-
-
+    rect(58.244 + x, hAtap + 11.273 + y, 33.471, 28.077);
+    
+    
+    
 }
