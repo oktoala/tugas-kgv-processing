@@ -7,7 +7,9 @@ void setup() {
     background(#1e1e1e);
 }
 
+
 void draw() {
+
     bottomBack("left");
     
     bottomBack("right");

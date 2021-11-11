@@ -1,0 +1,4 @@
+
+void makan () {
+    println("Hhah");
+}
